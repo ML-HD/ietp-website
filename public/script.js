@@ -2,6 +2,41 @@ const socket = io();
 const dataDisplay = document.getElementById('data-display');  
 const energyDisplay = document.getElementById('energy-display');  
 const ctx = document.getElementById('dataChart').getContext('2d');  
+const exportBtn = document.getElementById('export-btn');
+
+exportBtn.addEventListener('click', () => {
+    // Prepare CSV content
+    const headers = ['Time', 'Wind Speed (m/s)', 'Voltage (V)', 'Current (A)', 'Power (W)'];
+    const csvContent = [headers.join(',')]; // Start with headers
+
+    // Append each row of data
+    sensorLog.forEach(entry => {
+        const row = [
+            entry.time,
+            entry.windSpeed,
+            entry.voltage,
+            entry.current,
+            entry.power
+        ];
+        csvContent.push(row.join(','));
+});
+
+    // Convert array to a single CSV string
+    const csvString = csvContent.join('\n');
+
+    // Create a blob for the CSV file
+    const blob = new Blob([csvString], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary link to download the file
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'sensor_data.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up the link
+});
+
 
 // Chart configuration  
 let chartData = {  

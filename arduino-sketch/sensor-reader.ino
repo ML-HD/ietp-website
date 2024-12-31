@@ -10,11 +10,11 @@ const float REFERENCE_VOLTAGE = 3.3; // ESP32 ADC reference voltage
 const float VOLTAGE_DIVIDER_RATIO = 5.0; // Adjust based on your sensor's specifications
 
 // Wi-Fi credentials
-const char *ssid = "Galaxy M12 61AA";        // Replace with your Wi-Fi SSID
-const char *password = "jvkx0445"; // Replace with your Wi-Fi password
+const char *ssid = "iPhone MAX";        // Replace with your Wi-Fi SSID
+const char *password = "heyghost1"; // Replace with your Wi-Fi password
 
 // Server URL
-const char *serverUrl = "https://heman.serveo.net/sensor-data"; // Replace with your server's IP and port
+const char *serverUrl = "https://ietp-website.onrender.com/sensor-data"; // Replace with your server's IP and port
 
 void setup() {
   // Start serial communication
