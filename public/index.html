@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VAWTs Group-41</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="bg-primary text-white text-center py-4">
+      <h1>VAWTs Arduino Sensor Dashboard</h1>
+      <p>
+        Monitor sensor data in real-time for the Vertical-Axis Wind Turbines
+        (VAWTs) Group-41.
+      </p>
+    </header>
+    <main class="container mt-4">
+      <section id="real-time-data" class="mb-4">
+        <h2>Live Sensor Data</h2>
+        <div id="data-display" class="card text-center">
+          Waiting for data...
+        </div>
+        <div id="energy-display" class="card text-center mt-2">
+          Energy Generated: 0 kWh
+        </div>
+        <button id="export-btn" class="btn btn-success mt-2">
+          Export Data as CSV
+        </button>
+      </section>
+
+      <section id="data-analysis" class="mb-4">
+        <h2>Data Analysis</h2>
+        <div id="chart-container" class="card">
+          <canvas id="dataChart"></canvas>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+      <p>&copy; 2024 Arduino Sensor Dashboard</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
